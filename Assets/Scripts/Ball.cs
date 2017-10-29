@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    public float launchSpeed = 250;
+    public float launchSpeed = 350;
 
     private Rigidbody rigidBody;
     private AudioSource audioSource;
@@ -23,12 +23,7 @@ public class Ball : MonoBehaviour {
 
     public void Launch(float launchSpeed)
     {
-        Debug.Log("moving ball - speed: " + launchSpeed.ToString());
-
         rigidBody.velocity = new Vector3(0, 0, launchSpeed);
-
-        audioSource.Play();
-
-
+        audioSource.Play();        
     }
 }
