@@ -8,6 +8,7 @@ public class PinSetter : MonoBehaviour {
     public Text standingDisplay;
     public int lastStandingCount = -1;  // default state
     public float distanceToRaise = 40f;
+    public GameObject pinSet;
 
     private Ball ball;
     private bool ballEnteredBox = false;
@@ -93,6 +94,7 @@ public class PinSetter : MonoBehaviour {
     public void RenewPins()
     {
         Debug.Log("Renewing Pins");
+        Instantiate(pinSet, new Vector3(0, 0, 1829), Quaternion.identity );
     }
 
     private void OnTriggerEnter(Collider other)

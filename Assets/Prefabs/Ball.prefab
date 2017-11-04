@@ -203,13 +203,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchVelocity: {x: 0, y: 0, z: 1500}
+  inPlay: 0
 --- !u!135 &135348596870582828
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1855825907558458}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a88073916586d37479ca16f7daa35bdf, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

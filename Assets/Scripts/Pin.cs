@@ -9,18 +9,19 @@ public class Pin : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        // Debug.Log(name + "initial:" + transform.rotation.eulerAngles.ToString());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-	}
+        // Debug.Log(name + "current:" + transform.rotation.eulerAngles.ToString());
+    }
 
     public bool IsStanding()
     {
         // eulerAngles are how you see them in unity - am angle from each vertex
         Vector3 rotationInEuler = transform.rotation.eulerAngles;
+        Quaternion rotation = transform.rotation;
 
         float tiltInX = Mathf.Abs(rotationInEuler.x); // abs ensures positive only
         float tiltInZ = Mathf.Abs(rotationInEuler.z);
@@ -33,6 +34,15 @@ public class Pin : MonoBehaviour {
         {
             return true;
         }
+        
+        //if (tiltInX > standingThreshold)
+        //{
+        //    Debug.Log(name + " X:" + tiltInX);
+        //} else
+        //{
+        //    Debug.Log(name + " Z:" + tiltInZ);
+        //}
+
         return false;
     }
 
