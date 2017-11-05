@@ -29,6 +29,7 @@ public class PinSetter : MonoBehaviour {
         }
 	}
 
+    // Update count of standing pins and determine when settled.
     private void CheckStanding()
     {
         int currentStanding = CountStanding();
