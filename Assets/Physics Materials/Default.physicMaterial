@@ -5,7 +5,7 @@ PhysicMaterial:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DefaultMaterial
+  m_Name: Default
   dynamicFriction: 0.5
   staticFriction: 0.5
   bounciness: 0.01

@@ -7,7 +7,6 @@ public class PinSetter : MonoBehaviour {
 
     public Text standingDisplay;
     public int lastStandingCount = -1;  // default state
-    public float distanceToRaise = 40f;
     public GameObject pinSet;
 
     private Ball ball;
@@ -46,7 +45,6 @@ public class PinSetter : MonoBehaviour {
         {
             PinsHaveSettled();
         }
-
     }
 
     private void PinsHaveSettled()
@@ -74,7 +72,6 @@ public class PinSetter : MonoBehaviour {
 
     public void RaisePins()
     {
-        // Raise standing pins only by distanceToRaise
         Pin[] Pins = FindObjectsOfType<Pin>();
         foreach (Pin currentPin in Pins)
         {
@@ -93,7 +90,6 @@ public class PinSetter : MonoBehaviour {
 
     public void RenewPins()
     {
-        Debug.Log("Renewing Pins");
         Instantiate(pinSet, new Vector3(0, 0, 1829), Quaternion.identity );
     }
 
@@ -105,14 +101,4 @@ public class PinSetter : MonoBehaviour {
             standingDisplay.color = Color.red;
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<Pin>())
-        {
-            Destroy(other.gameObject);
-        }
-    }
-
-
 }
