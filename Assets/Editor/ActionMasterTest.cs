@@ -57,6 +57,20 @@ public class ActionMasterTest {
         Assert.AreEqual(tidy, actionMaster.Bowl(0));
     }
 
+    [Test]
+    public void T06_Bowl0then10()
+    {
+        actionMaster.Bowl(0);
+        Assert.AreEqual(endTurn, actionMaster.Bowl(10));
+    }
+
+    [Test]
+    public void T07_Bowl0then10then3()
+    {
+        actionMaster.Bowl(0);
+        actionMaster.Bowl(10);
+        Assert.AreEqual(tidy, actionMaster.Bowl(3));
+    }
 
     [Test]
     public void T10_9thFrame_firstball()

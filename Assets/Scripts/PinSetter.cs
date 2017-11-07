@@ -6,26 +6,31 @@ using UnityEngine.UI;
 public class PinSetter : MonoBehaviour {
 
     public Text standingDisplay;
-    public int lastStandingCount = -1;  // default state
     public GameObject pinSet;
+    public bool ballLeftBox = false;
 
     private Ball ball;
-    private bool ballEnteredBox = false;
+    private Animator animator;
+    ActionMaster actionMaster;
+    private int lastStandingCount = -1;  // default state
     private float lastChangeTime;
+    private int lastSettledCount = 10;
 
 	// Use this for initialization
 	void Start () {
+        actionMaster = new ActionMaster();
         ball = FindObjectOfType<Ball>();
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         standingDisplay.text = CountStanding().ToString();
 
-        if (ballEnteredBox)
+        if (ballLeftBox)
         {
             CheckStanding();
-
+            standingDisplay.color = Color.red;
         }
 	}
 
@@ -50,10 +55,34 @@ public class PinSetter : MonoBehaviour {
 
     private void PinsHaveSettled()
     {
+        int pinFall = lastSettledCount - CountStanding();
+        lastSettledCount = lastSettledCount - pinFall;
+        ActionMaster.Action actionResult = actionMaster.Bowl(pinFall);
+
+        if (actionResult == ActionMaster.Action.Tidy)
+        {
+            animator.SetTrigger("tidyTrigger");
+        }
+        else if (actionResult == ActionMaster.Action.Reset)
+        {
+            animator.SetTrigger("resetTrigger");
+            lastSettledCount = 10;
+        }
+        else if (actionResult == ActionMaster.Action.EndTurn)
+        {
+            animator.SetTrigger("resetTrigger");
+            lastSettledCount = 10;
+        }
+        else if (actionResult == ActionMaster.Action.EndGame)
+        {
+            throw new UnityException("Don't know how to handle endgame");
+        }
+
+        
         ball.Reset();
         standingDisplay.color = Color.green;
         lastStandingCount = -1; // indicates pins have settled
-        ballEnteredBox = false;
+        ballLeftBox = false;
     }
 
     public int CountStanding()
@@ -94,12 +123,4 @@ public class PinSetter : MonoBehaviour {
         Instantiate(pinSet, new Vector3(0, 0, 1829), Quaternion.identity );
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Ball>())
-        {
-            ballEnteredBox = true;
-            standingDisplay.color = Color.red;
-        }
-    }
 }
