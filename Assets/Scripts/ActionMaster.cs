@@ -22,7 +22,7 @@ public class ActionMaster {
         return eachAction;
     }
 
-    public Action Bowl (int pins)  // TODO make private (currently used in PinSetter)
+    private Action Bowl (int pins)  
     {
         if (pins < 0 || pins > 10) { throw new UnityException("Invalid Pins value: " + pins); }
         bowls[bowl] = pins;

@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 379868240}
   - component: {fileID: 379868239}
   m_Layer: 5
-  m_Name: Text
+  m_Name: StandingCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,7 +974,7 @@ GameObject:
   - component: {fileID: 946828061}
   - component: {fileID: 946828060}
   - component: {fileID: 946828059}
-  - component: {fileID: 946828058}
+  - component: {fileID: 946828063}
   m_Layer: 0
   m_Name: LaneCollider
   m_TagString: Untagged
@@ -982,17 +982,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &946828058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 946828057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cff2b0ab2dcaae46a2381d62e3f8e1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &946828059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,6 +1025,19 @@ Transform:
   m_Father: {fileID: 894066867}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946828063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946828057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa32f71831268046ad65730d3d5f357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingDisplay: {fileID: 379868239}
+  ballLeftBox: 0
 --- !u!1001 &1173276176
 Prefab:
   m_ObjectHideFlags: 0
@@ -1524,6 +1526,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1532139462}
+--- !u!1 &1535575496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1535575498}
+  - component: {fileID: 1535575497}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1535575497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535575496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4fb67dc4ebd1c4f87f31f4a5eaa4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1535575498
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535575496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1587703588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,9 +1916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa982e72f99e38842b7034c49938fb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingDisplay: {fileID: 379868239}
   pinSet: {fileID: 1906213015066168, guid: f44f1b02339d0f949a668860719cfbdd, type: 2}
-  ballLeftBox: 0
 --- !u!65 &1924800118
 BoxCollider:
   m_ObjectHideFlags: 0
