@@ -26,12 +26,16 @@ public class DragLaunch : MonoBehaviour {
 
     public void DragStart()
     { // Capture time & position of drag start
+        if (ball.inPlay) { return; }
+
         startTime = Time.timeSinceLevelLoad;
         startPos = Input.mousePosition;
     }	
 
     public void DragEnd ()
     { // Launch the ball
+        if (ball.inPlay) { return; }
+
         endTime = Time.timeSinceLevelLoad;
         endPos = Input.mousePosition;
 

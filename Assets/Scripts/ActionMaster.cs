@@ -10,8 +10,19 @@ public class ActionMaster {
     private int bowl = 1;
     private bool extraBowl = false;
     
+    public static Action NextAction(List<int> pinFalls  )
+    {
+        ActionMaster am = new ActionMaster();
+        Action eachAction = new Action();
 
-    public Action Bowl (int pins)
+        foreach (int pinFall in pinFalls)
+        {
+            eachAction = am.Bowl(pinFall);
+        }
+        return eachAction;
+    }
+
+    public Action Bowl (int pins)  // TODO make private (currently used in PinSetter)
     {
         if (pins < 0 || pins > 10) { throw new UnityException("Invalid Pins value: " + pins); }
         bowls[bowl] = pins;
