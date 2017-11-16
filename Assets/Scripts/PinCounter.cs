@@ -24,8 +24,8 @@ public class PinCounter : MonoBehaviour {
 
         if (ballLeftBox)
         {
-            CheckStanding();
             standingDisplay.color = Color.red;
+            CheckStanding();
         }
     }
 
@@ -73,7 +73,7 @@ public class PinCounter : MonoBehaviour {
         int pinFall = lastSettledCount - CountStanding();
         lastSettledCount = lastSettledCount - pinFall;
         gameManager.Bowl(pinFall);
-        
+        Debug.Log("going green");
         standingDisplay.color = Color.green;
         lastStandingCount = -1; // indicates pins have settled
         ballLeftBox = false;

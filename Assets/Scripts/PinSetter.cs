@@ -15,23 +15,23 @@ public class PinSetter : MonoBehaviour {
         pinCounter = FindObjectOfType<PinCounter>();
     }
 	
-    public void PerformAction (ActionMaster.Action action)
+    public void PerformAction (ActionMaster3.Action action)
     {
-        if (action == ActionMaster.Action.Tidy)
+        if (action == ActionMaster3.Action.Tidy)
         {
             animator.SetTrigger("tidyTrigger");
         }
-        else if (action == ActionMaster.Action.Reset)
+        else if (action == ActionMaster3.Action.Reset)
         {
             animator.SetTrigger("resetTrigger");
             pinCounter.PinCountReset();
         }
-        else if (action == ActionMaster.Action.EndTurn)
+        else if (action == ActionMaster3.Action.EndTurn)
         {
             animator.SetTrigger("resetTrigger");
             pinCounter.PinCountReset();
         }
-        else if (action == ActionMaster.Action.EndGame)
+        else if (action == ActionMaster3.Action.EndGame)
         {
             throw new UnityException("Don't know how to handle endgame");
         }

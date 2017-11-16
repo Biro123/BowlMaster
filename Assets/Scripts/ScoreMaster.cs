@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreMaster {
+public static class ScoreMaster {
 
     static int[,] bowlsToIncludeInFrames; 
     private enum BowlType { strike, spare, normal };
