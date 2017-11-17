@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour {
 
         try
         {
-            scoreDisplay.FillRollCard(bowls);
+            scoreDisplay.FillRolls(bowls);
+            scoreDisplay.FillFrames(ScoreMaster.ScoreCumulative(bowls));
         }
         catch (System.Exception)
         {
